@@ -41,6 +41,8 @@ export default {
 }
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #17191b;
+  color: #343a40;
 }
 .container {
   max-width: 500px;
@@ -54,7 +56,7 @@ body {
 }
 .btn {
   display: inline-block;
-  background: #000;
+  background: #099268;
   color: #f8f9fa;
   border: none;
   padding: 10px 20px;
