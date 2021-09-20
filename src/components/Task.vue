@@ -24,12 +24,18 @@ export default {
 .fas {
   color: #e03131;
 }
+.fas:hover {
+  color: #c92a2a;
+}
 .task {
   background: #dee2e6;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+.task:hover {
+  background-color: #ced4da;
 }
 .task.reminder {
   border-left: 5px solid #099268;

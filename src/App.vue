@@ -73,6 +73,9 @@ body {
 .btn:active {
   transform: scale(0.98);
 }
+.btn:hover {
+  background-color: #087252;
+}
 .btn-block {
   display: block;
   width: 100%;
@@ -85,5 +88,8 @@ a {
   padding: 5px 10px;
   margin: 10px 0;
   text-decoration: none;
+}
+a:hover {
+  background-color: #087252;
 }
 </style>

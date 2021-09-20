@@ -2,10 +2,14 @@
   "name": "to-do",
   "version": "0.1.0",
   "private": true,
+  "keywords": [
+    "json-server,heroku, node, REST API"
+  ],
   "scripts": {
+    "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "backend": "json-server --watch db.json --port 5000"
+    "backend": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
     "core-js": "^3.6.5",

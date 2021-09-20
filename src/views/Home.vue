@@ -26,19 +26,24 @@ export default {
   },
   methods: {
     async addTask(task) {
-      const res = await fetch("api/tasks", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(task),
-      });
-      const data = await res.json();
-      this.tasks = [...this.tasks, data];
+      try {
+        const res = await fetch("https://json.mapalchemy.com/tasks", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(task),
+        });
+        const data = await res.json();
+        this.tasks = [...this.tasks, data];
+      } catch (error) {
+        console.log(error);
+        debugger;
+      }
     },
     async deleteTask(id) {
       if (confirm("Are you sure?")) {
-        const res = await fetch(`api/tasks/${id}`, {
+        const res = await fetch(`https://json.mapalchemy.com/tasks/${id}`, {
           method: "DELETE",
         });
         res.status === 200
@@ -49,7 +54,7 @@ export default {
     async toggleReminder(id) {
       const taskToToggle = await this.fetchTask(id);
       const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
-      const res = await fetch(`api/tasks/${id}`, {
+      const res = await fetch(`https://json.mapalchemy.com/tasks/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -62,12 +67,12 @@ export default {
       );
     },
     async fetchTasks() {
-      const res = await fetch("api/tasks");
+      const res = await fetch("https://json.mapalchemy.com/tasks");
       const data = await res.json();
       return data;
     },
     async fetchTask(id) {
-      const res = await fetch(`api/tasks/${id}`);
+      const res = await fetch(`https://json.mapalchemy.com/tasks/${id}`);
       const data = await res.json();
       return data;
     },
