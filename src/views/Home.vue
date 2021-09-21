@@ -3,6 +3,7 @@
   <Tasks
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask"
+    @edit-task="editTask"
     :tasks="tasks"
   />
 </template>
@@ -36,6 +37,22 @@ export default {
         });
         const data = await res.json();
         this.tasks = [...this.tasks, data];
+      } catch (error) {
+        console.log(error);
+        debugger;
+      }
+    },
+    async editTask(id, updatedTask) {
+      try {
+        const res = await fetch(`https://json.mapalchemy.com/tasks/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(updatedTask),
+        });
+        const data = await res.json();
+        this.tasks = this.tasks.map((task) => (task.id === id ? data : task));
       } catch (error) {
         console.log(error);
         debugger;
