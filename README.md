@@ -1,4 +1,5 @@
-# to-do
+# Task Tracker App
+CRUD Vue App using Optional API, Router and JSON server
 
 ## Project setup
 ```
